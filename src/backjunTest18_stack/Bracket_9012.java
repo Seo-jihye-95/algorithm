@@ -1,39 +1,39 @@
-package stack;
+package backjunTest18_stack;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
 
-public class Bracket_9012_2 {
+public class Bracket_9012 {
 	public static String solve(String s){
 		
-		ArrayList<Character> stack = new ArrayList<>();
+		Stack<Character> stack = new Stack<>();
 		
-		for(int i=0; i<s.length(); i++) {
+		for(int i =0; i<s.length(); i++) {
 			char c = s.charAt(i);
 			
-			if( c == '(') {
-				stack.add('(');
+			if(c == '(') {
+				stack.push(c);
+			
+			} else if (stack.empty()) {
+				return "NO";
+				
 			} else {
-				if(stack.isEmpty()) {
-					return "NO";
-				} else {
-					stack.remove(stack.size() -1);
-				}
+				stack.pop();
 			}
 		}
-				
-		if(stack.isEmpty()) {
-			return "YES";
-		} else {
-			return "NO";
-		}
+		
+			if(stack.empty()) {
+				return "YES";
+			} else {
+				return "NO";
+			}
+		
 	}
 
 	
@@ -44,7 +44,7 @@ public class Bracket_9012_2 {
 		
 		int num = Integer.parseInt(br.readLine());
 		
-		Bracket_9012_2 bs = new Bracket_9012_2();
+		Bracket_9012 bs = new Bracket_9012();
 		
 		for(int i=0; i<num; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
