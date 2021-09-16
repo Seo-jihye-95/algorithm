@@ -29,7 +29,7 @@ public class Queue_11866 {
 		for(int i=0; i<K-1; i++) {
 			q.offer(q.poll());
 		}
-		sb.append(q.poll()+",");
+		sb.append(q.poll()+", ");
 	}
 	
 	sb.append(q.poll()).append(">");
