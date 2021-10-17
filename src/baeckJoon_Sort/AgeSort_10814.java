@@ -3,42 +3,37 @@ package baeckJoon_Sort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedHashMap;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class AgeSort_10814 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
+        int N = Integer.parseInt(br.readLine());
+        String arr[][] = new String[N][2];
         
-        // 이름이 key , 나이가 value
-        LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>(); 
-
-        int t = Integer.parseInt(br.readLine());
-        
-        for(int i=0; i<t; i++) {
+        for(int i=0; i<N; i++) {
         	st = new StringTokenizer(br.readLine()," ");
-        	int age = Integer.parseInt(st.nextToken());
-        	String name = st.nextToken();
-        	
-        	map.put(name, age);
+        	for(int j=0; j<2; j++) {
+        		arr[i][j] = st.nextToken();
+        	}
         }
         
-        
-        map.forEach((key, value) -> { 
-        	System.out.println("Key:" + key + ", Value:" + value); 
-        });
-
-//        
-//        for(int i=0; i<t; i++) {
-//        	for(int j=i+1; j<t; j++) {
-//        		map.get(name);
-//      
-//        	}
-//        }
-//        
-        
+        Arrays.sort(arr,new Comparator<String[]>() {
+        	@Override
+        	public int compare(String[] o1, String[] o2) {
+        		// 0번째 인덱스(나이) 기준으로 비교하기
+        		return Integer.compare(Integer.parseInt(o1[0]), Integer.parseInt(o2[0]));
+        	}
+		});
+      
+      
+  
+        for(int i=0;i<arr.length;i++) {
+			System.out.println(arr[i][0]+" "+arr[i][1]);
+        }
         
 
 	}
