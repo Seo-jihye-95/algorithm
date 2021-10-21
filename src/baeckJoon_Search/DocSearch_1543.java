@@ -19,20 +19,15 @@ public class DocSearch_1543 {
 		
 		
 		while(ack+bindex <= aindex) {
-			System.out.println(ack + " : ack ");
-			System.out.println(bck + " : bck ");
-			System.out.println(A.substring(ack,bck));
 			if((A.substring(ack,bck)).equals(B)) {
 				cnt++;
 				ack += bindex;
 				bck += bindex;
-				System.out.println(ack + " : ack");
 			} else {
 				ack += 1;
 				bck += 1;
 			}
 			
-			System.out.println("==============================");
 		}
 		
 		System.out.println(cnt);
