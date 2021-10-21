@@ -9,7 +9,7 @@ public class DocSearch_1543 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		String A = br.readLine();	//ababababa
-		String B = br.readLine();	//aba
+		String B = br.readLine();	//aba 
 		
 		int ack = 0;
 		int bck = B.length();
